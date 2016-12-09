@@ -5,19 +5,19 @@ function restore_options() {
         Units: 'mg/dL',
         UserName: '',
         Password: '',
-        AlertHigh: '300',
-        WarningHigh: '200',
-        AlertLow: '50',
-        WarningLow: '100'
+        OMGsoHigh: '300',
+        HighAF: '200',
+        MaybeASnack: '50',
+        LowAF: '100'
     }, function(items) {
         document.getElementById('BridgeServer').value = items.BridgeServer;
         document.getElementById('Units').value = items.Units;
         document.getElementById('UserName').value = items.UserName;
         document.getElementById('Password').value = items.Password;
-        document.getElementById('AlertHigh').value = items.AlertHigh;
-        document.getElementById('AlertLow').value = items.AlertLow;
-        document.getElementById('WarningHigh').value = items.WarningHigh;
-        document.getElementById('WarningLow').value = items.WarningLow;
+        document.getElementById('OMGsoHigh').value = items.OMGsoHigh;
+        document.getElementById('MaybeASnack').value = items.MaybeASnack;
+        document.getElementById('HighAF').value = items.HighAF;
+        document.getElementById('LowAF').value = items.LowAF;
     });
 }
 
@@ -26,10 +26,10 @@ function save_options() {
     var Units = document.getElementById('Units').value;
     var UserName = document.getElementById('UserName').value;
     var Password = document.getElementById('Password').value;
-    var AlertHigh = document.getElementById('AlertHigh').value;
-    var WarningHigh = document.getElementById('WarningHigh').value;
-    var AlertLow = document.getElementById('AlertLow').value;
-    var WarningLow = document.getElementById('WarningLow').value;
+    var OMGsoHigh = document.getElementById('OMGsoHigh').value;
+    var HighAF = document.getElementById('HighAF').value;
+    var MaybeASnack = document.getElementById('MaybeASnack').value;
+    var LowAF = document.getElementById('LowAF').value;
     
     console.log("Saving options");
 
@@ -38,17 +38,17 @@ function save_options() {
         Units: Units,
         UserName: UserName,
         Password: Password,
-        AlertHigh: AlertHigh,
-        WarningHigh: WarningHigh,
-        AlertLow: AlertLow,
-        WarningLow: WarningLow 
+        OMGsoHigh: OMGsoHigh,
+        HighAF: HighAF,
+        MaybeASnack: MaybeASnack,
+        LowAF: LowAF 
     }, function() {
         var background = chrome.extension.getBackgroundPage();
         background.units = Units;
-        background.alertHigh = AlertHigh;
-        background.alertLow = AlertLow;
-        background.warningHigh = WarningHigh;
-        background.warningLow = WarningLow;
+        background.OMGsoHigh = OMGsoHigh;
+        background.MaybeASnack = MaybeASnack;
+        background.HighAF = HighAF;
+        background.LowAF = LowAF;
 
         var status = document.getElementById('status');
         status.textContent = 'Options saved.';
